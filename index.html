@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Columbia Association — Resident Benefits Partner Portal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ca-green: #2D6A3F;
+    --ca-green-light: #3D8A54;
+    --ca-green-pale: #EBF5EE;
+    --ca-gold: #C9A84C;
+    --ca-gold-light: #F0D98A;
+    --ca-dark: #1A2820;
+    --ca-mid: #4A6355;
+    --ca-cream: #FAF8F3;
+    --ca-white: #FFFFFF;
+    --ca-border: #D4E6DA;
+    --radius: 12px;
+    --radius-lg: 20px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--ca-cream);
+    color: var(--ca-dark);
+    line-height: 1.6;
+  }
+
+  /* ── TOP BANNER ─────────────────────────────── */
+  .top-banner {
+    background: var(--ca-dark);
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    padding: 10px 20px;
+  }
+  .top-banner a { color: var(--ca-gold-light); text-decoration: none; }
+
+  /* ── NAV ─────────────────────────────────────── */
+  nav {
+    background: var(--ca-white);
+    border-bottom: 1px solid var(--ca-border);
+    padding: 16px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(45,106,63,0.06);
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+  .logo-mark {
+    width: 44px;
+    height: 44px;
+    background: var(--ca-green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+  }
+  .logo-text .org { font-weight: 700; font-size: 0.95rem; color: var(--ca-dark); }
+  .logo-text .sub { font-size: 0.72rem; font-weight: 400; color: var(--ca-mid); letter-spacing: 0.02em; }
+  .nav-links {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--ca-mid);
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .nav-links a:hover { background: var(--ca-green-pale); color: var(--ca-green); }
+  .nav-cta {
+    background: var(--ca-green) !important;
+    color: white !important;
+    padding: 9px 20px !important;
+  }
+  .nav-cta:hover { background: var(--ca-green-light) !important; color: white !important; }
+
+  /* ── HERO ────────────────────────────────────── */
+  .hero {
+    background: var(--ca-green);
+    background-image:
+      radial-gradient(ellipse at 80% 50%, rgba(201,168,76,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 10% 80%, rgba(0,0,0,0.2) 0%, transparent 50%);
+    color: white;
+    padding: 80px 48px 72px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    right: -80px;
+    top: -80px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.08);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    right: -20px;
+    top: -20px;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.06);
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: var(--ca-gold-light);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.15;
+    max-width: 680px;
+    margin-bottom: 20px;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--ca-gold-light);
+  }
+  .hero-desc {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.82);
+    max-width: 560px;
+    margin-bottom: 36px;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .btn-primary {
+    background: var(--ca-gold);
+    color: var(--ca-dark);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 14px 28px;
+    border-radius: 10px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    box-shadow: 0 4px 20px rgba(201,168,76,0.3);
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(201,168,76,0.4);
+    background: #d4ae58;
+  }
+  .btn-outline {
+    background: transparent;
+    border: 1.5px solid rgba(255,255,255,0.4);
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 14px 24px;
+    border-radius: 10px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .btn-outline:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.6);
+  }
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 52px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    flex-wrap: wrap;
+  }
+  .stat { display: flex; flex-direction: column; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--ca-gold-light);
+    line-height: 1;
+  }
+  .stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.65); margin-top: 4px; font-weight: 400; }
+
+  /* ── SECTION WRAPPER ─────────────────────────── */
+  .section { padding: 80px 48px; }
+  .section-inner { max-width: 960px; margin: 0 auto; }
+  .section-alt { background: var(--ca-white); }
+  .section-dark { background: var(--ca-dark); color: white; }
+
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ca-green);
+    margin-bottom: 12px;
+  }
+  .section-dark .section-label { color: var(--ca-gold-light); }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .section-dark h2 { color: white; }
+  .section-intro {
+    font-size: 1rem;
+    color: var(--ca-mid);
+    max-width: 600px;
+    line-height: 1.7;
+    margin-bottom: 48px;
+  }
+  .section-dark .section-intro { color: rgba(255,255,255,0.7); }
+
+  /* ── HOW IT WORKS ─────────────────────────────── */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .step {
+    background: var(--ca-green-pale);
+    border: 1px solid var(--ca-border);
+    border-radius: var(--radius-lg);
+    padding: 32px 28px;
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .step:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(45,106,63,0.1); }
+  .step-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--ca-border);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  .step h3 {
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin-bottom: 10px;
+    color: var(--ca-dark);
+  }
+  .step p { font-size: 0.9rem; color: var(--ca-mid); line-height: 1.65; }
+
+  /* ── BENEFITS GRID ───────────────────────────── */
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .benefit-card {
+    background: var(--ca-cream);
+    border: 1px solid var(--ca-border);
+    border-radius: var(--radius);
+    padding: 28px;
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .benefit-card:hover {
+    border-color: var(--ca-green);
+    box-shadow: 0 6px 24px rgba(45,106,63,0.08);
+  }
+  .benefit-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--ca-green);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+  .benefit-text h3 { font-weight: 600; font-size: 0.95rem; margin-bottom: 6px; color: var(--ca-dark); }
+  .benefit-text p { font-size: 0.875rem; color: var(--ca-mid); line-height: 1.6; }
+
+  /* ── PRICING TABLE ───────────────────────────── */
+  .pricing-wrap {
+    overflow-x: auto;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--ca-border);
+    box-shadow: 0 4px 24px rgba(45,106,63,0.06);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    font-size: 0.9rem;
+  }
+  thead { background: var(--ca-green); color: white; }
+  thead th {
+    padding: 16px 20px;
+    font-weight: 600;
+    text-align: left;
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+  }
+  thead th:not(:first-child) { text-align: center; }
+  tbody tr { border-bottom: 1px solid var(--ca-border); }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:nth-child(even) { background: var(--ca-green-pale); }
+  tbody td { padding: 14px 20px; color: var(--ca-dark); }
+  tbody td:not(:first-child) { text-align: center; font-weight: 500; }
+  .price-resident { color: var(--ca-green); font-weight: 700; }
+  .price-nonres { color: #888; }
+  .price-savings {
+    background: var(--ca-gold-light);
+    color: var(--ca-dark);
+    font-weight: 700;
+    font-size: 0.8rem;
+    padding: 3px 8px;
+    border-radius: 6px;
+    white-space: nowrap;
+  }
+  .pricing-note {
+    margin-top: 14px;
+    font-size: 0.8rem;
+    color: var(--ca-mid);
+    font-style: italic;
+  }
+
+  /* ── COLUMBIA CARD FEATURE ───────────────────── */
+  .card-feature {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .card-visual {
+    background: linear-gradient(135deg, var(--ca-green) 0%, var(--ca-dark) 100%);
+    border-radius: 20px;
+    padding: 40px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1.6;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 20px 60px rgba(45,106,63,0.3);
+  }
+  .card-visual::before {
+    content: '';
+    position: absolute;
+    right: -40px;
+    bottom: -40px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: rgba(201,168,76,0.15);
+  }
+  .card-visual::after {
+    content: '';
+    position: absolute;
+    left: 30%;
+    top: -20px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+  .card-chip {
+    width: 36px;
+    height: 28px;
+    background: var(--ca-gold);
+    border-radius: 5px;
+    opacity: 0.9;
+  }
+  .card-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  .card-sub { font-size: 0.75rem; opacity: 0.7; margin-top: 2px; }
+  .card-free-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--ca-gold);
+    color: var(--ca-dark);
+    font-weight: 800;
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-radius: 100px;
+  }
+  .card-info h2 { margin-bottom: 14px; }
+  .card-perks {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .card-perks li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.92rem;
+    color: var(--ca-mid);
+    line-height: 1.5;
+  }
+  .perk-check {
+    width: 20px;
+    height: 20px;
+    background: var(--ca-green-pale);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    color: var(--ca-green);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* ── COPY BLOCKS ─────────────────────────────── */
+  .copy-blocks { display: flex; flex-direction: column; gap: 20px; }
+  .copy-block {
+    background: var(--ca-green-pale);
+    border: 1px solid var(--ca-border);
+    border-left: 4px solid var(--ca-green);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    position: relative;
+  }
+  .copy-block-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ca-green);
+    margin-bottom: 10px;
+  }
+  .copy-block-text {
+    font-size: 0.92rem;
+    color: var(--ca-dark);
+    line-height: 1.7;
+  }
+  .copy-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: var(--ca-green);
+    color: white;
+    border: none;
+    border-radius: 7px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .copy-btn:hover { background: var(--ca-green-light); }
+  .copy-btn.copied { background: #4CAF50; }
+
+  /* ── ASSETS DOWNLOAD ─────────────────────────── */
+  .assets-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .asset-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: var(--radius);
+    padding: 24px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .asset-card:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.25);
+  }
+  .asset-thumb {
+    aspect-ratio: 1.6;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .asset-thumb.square { aspect-ratio: 1; }
+  .asset-thumb.portrait { aspect-ratio: 0.707; }
+  .asset-bg-1 { background: linear-gradient(135deg, var(--ca-green), #1a3d26); }
+  .asset-bg-2 { background: linear-gradient(135deg, var(--ca-gold), #a07830); }
+  .asset-bg-3 { background: linear-gradient(135deg, var(--ca-dark), #2d4a38); }
+  .asset-label { font-size: 0.7rem; color: rgba(255,255,255,0.5); position: absolute; bottom: 8px; right: 8px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
+  .asset-info h4 { font-size: 0.9rem; font-weight: 600; color: white; }
+  .asset-info p { font-size: 0.78rem; color: rgba(255,255,255,0.55); }
+  .asset-format {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .fmt-tag {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.6);
+    padding: 3px 8px;
+    border-radius: 5px;
+  }
+  .asset-dl {
+    background: var(--ca-gold);
+    color: var(--ca-dark);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.8rem;
+    border: none;
+    border-radius: 8px;
+    padding: 9px 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: background 0.2s;
+    text-decoration: none;
+    justify-content: center;
+    margin-top: auto;
+  }
+  .asset-dl:hover { background: #d4ae58; }
+
+  /* ── CONTACT SECTION ─────────────────────────── */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .contact-card {
+    background: var(--ca-green-pale);
+    border: 1px solid var(--ca-border);
+    border-radius: var(--radius-lg);
+    padding: 32px 28px;
+    text-align: center;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .contact-card:hover {
+    box-shadow: 0 8px 28px rgba(45,106,63,0.12);
+    transform: translateY(-3px);
+  }
+  .contact-icon {
+    width: 52px;
+    height: 52px;
+    background: var(--ca-green);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    margin: 0 auto 16px;
+  }
+  .contact-card h3 { font-weight: 700; font-size: 1rem; margin-bottom: 8px; }
+  .contact-card p { font-size: 0.875rem; color: var(--ca-mid); line-height: 1.6; }
+  .contact-card a { color: var(--ca-green); font-weight: 600; text-decoration: none; }
+  .contact-card a:hover { text-decoration: underline; }
+
+  /* ── FOOTER ──────────────────────────────────── */
+  footer {
+    background: var(--ca-dark);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 32px 48px;
+    font-size: 0.82rem;
+    line-height: 1.8;
+  }
+  footer a { color: rgba(255,255,255,0.7); }
+  footer strong { color: rgba(255,255,255,0.85); }
+
+  /* ── STICKY CTA BAR ──────────────────────────── */
+  .sticky-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    border-top: 1px solid var(--ca-border);
+    padding: 14px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 -4px 24px rgba(0,0,0,0.08);
+    z-index: 200;
+    gap: 16px;
+  }
+  .sticky-bar-text { font-size: 0.875rem; color: var(--ca-mid); }
+  .sticky-bar-text strong { color: var(--ca-dark); }
+  .sticky-bar-actions { display: flex; gap: 10px; align-items: center; }
+  .btn-sm {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-sm-green { background: var(--ca-green); color: white; }
+  .btn-sm-green:hover { background: var(--ca-green-light); }
+  .btn-sm-outline { background: transparent; border: 1.5px solid var(--ca-border); color: var(--ca-mid); }
+  .btn-sm-outline:hover { border-color: var(--ca-green); color: var(--ca-green); }
+
+  /* ── TABS ────────────────────────────────────── */
+  .tab-nav {
+    display: flex;
+    gap: 4px;
+    background: var(--ca-green-pale);
+    border: 1px solid var(--ca-border);
+    border-radius: 12px;
+    padding: 4px;
+    margin-bottom: 32px;
+    width: fit-content;
+  }
+  .tab-btn {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 10px 20px;
+    border-radius: 9px;
+    border: none;
+    background: transparent;
+    color: var(--ca-mid);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .tab-btn.active {
+    background: var(--ca-green);
+    color: white;
+    box-shadow: 0 2px 10px rgba(45,106,63,0.3);
+  }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── ANNOUNCEMENT BANNER ─────────────────────── */
+  .announcement {
+    background: linear-gradient(135deg, #FFF8E1, #FFF3CD);
+    border: 1px solid var(--ca-gold);
+    border-radius: var(--radius);
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 36px;
+  }
+  .announcement-icon { font-size: 1.4rem; flex-shrink: 0; }
+  .announcement p { font-size: 0.9rem; color: #5c4a00; line-height: 1.6; }
+  .announcement strong { color: #3d3000; }
+
+  /* ── RESPONSIVE ──────────────────────────────── */
+  @media (max-width: 768px) {
+    nav { padding: 14px 20px; }
+    .nav-links { display: none; }
+    .hero { padding: 48px 20px 52px; }
+    .section { padding: 56px 20px; }
+    .steps { grid-template-columns: 1fr; }
+    .benefits-grid { grid-template-columns: 1fr; }
+    .card-feature { grid-template-columns: 1fr; }
+    .assets-grid { grid-template-columns: 1fr 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .sticky-bar { padding: 12px 20px; flex-direction: column; align-items: stretch; }
+    .sticky-bar-text { display: none; }
+  }
+
+  /* ── ANIMATIONS ──────────────────────────────── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-inner > * {
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero-eyebrow { animation-delay: 0.05s; }
+  .hero h1 { animation-delay: 0.15s; }
+  .hero-desc { animation-delay: 0.25s; }
+  .hero-actions { animation-delay: 0.35s; }
+  .hero-stats { animation-delay: 0.45s; }
+</style>
+</head>
+<body>
+
+<!-- TOP BANNER -->
+<div class="top-banner">
+  This page is for Columbia apartment property managers. Questions? Contact June at Columbia Association — <a href="mailto:CustomerCare@ColumbiaAssociation.org">CustomerCare@ColumbiaAssociation.org</a>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="https://columbiaassociation.org" target="_blank">
+    <div class="logo-mark">CA</div>
+    <div class="logo-text">
+      <span class="org">Columbia Association</span>
+      <span class="sub">Resident Benefits Partner Portal</span>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="#how-it-works">How It Works</a>
+    <a href="#benefits">Benefits</a>
+    <a href="#copy-toolkit">Copy Toolkit</a>
+    <a href="#assets">Assets</a>
+    <a href="#contact">Contact</a>
+    <a href="https://columbiaassociation.org/sports-recreation/membership/columbia-card/" target="_blank" class="nav-cta">Get Columbia Card →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">🏡 Property Manager Toolkit</div>
+    <h1>Your residents are already<br><em>Columbia Association members.</em><br>They just don't know it yet.</h1>
+    <p class="hero-desc">
+      Every person living in a CA-assessed apartment building in Columbia is entitled to CA resident benefits — discounted memberships, pool access, fitness clubs, and more. This portal gives you everything you need to spread the word.
+    </p>
+    <div class="hero-actions">
+      <a href="#copy-toolkit" class="btn-primary">📋 Grab Ready-to-Use Copy</a>
+      <a href="#assets" class="btn-outline">⬇ Download Graphics &amp; Flyers</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">60+</span>
+        <span class="stat-label">Community facilities</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">23</span>
+        <span class="stat-label">Outdoor pools</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">95mi</span>
+        <span class="stat-label">Pathways &amp; open space</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">FREE</span>
+        <span class="stat-label">Columbia Card for residents</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section" id="how-it-works">
+  <div class="section-inner">
+    <div class="section-label">How It Works</div>
+    <h2>Three steps to unlocking resident benefits</h2>
+    <p class="section-intro">Share this simple journey with your tenants — it costs them nothing, and gives them a lot.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Find out if you're eligible</h3>
+        <p>Residents of CA-assessed properties — including apartment buildings in Columbia — automatically qualify for CA resident benefits. Most renters don't realize this. If they live here, they're in.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>Get your free Columbia Card</h3>
+        <p>Residents register for their Columbia Card online or through CA Customer Care. They'll need a Columbia address and a simple proof of residency (lease or utility bill). It's free — always.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>Enjoy resident-rate perks</h3>
+        <p>With a Columbia Card, residents unlock deeply discounted membership rates, free pool day passes, 2nd Sunday Swim access, and resident pricing across all CA programs and facilities.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="section section-alt" id="benefits">
+  <div class="section-inner">
+    <div class="section-label">What Residents Get</div>
+    <h2>A community built for living well</h2>
+    <p class="section-intro">CA resident benefits are an amenity your building is already delivering. Help your tenants discover what's available to them.</p>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon">🏊</div>
+        <div class="benefit-text">
+          <h3>Pools — 23 outdoor + indoor facilities</h3>
+          <p>Resident-rate access to CA's network of pools across Columbia. Columbia Cardholders also receive 4 complimentary single-use guest passes each summer season.</p>
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">💪</div>
+        <div class="benefit-text">
+          <h3>Fitness Clubs — 3 full-service locations</h3>
+          <p>Resident rates on gym memberships (1Fit and Fit&Play) at Columbia Athletic Club, Columbia Gym, and Supreme Sports Club — significantly lower than non-resident pricing.</p>
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🎾</div>
+        <div class="benefit-text">
+          <h3>Tennis &amp; Pickleball</h3>
+          <p>Resident discounts at CA's 5 tennis clubs. The Play membership (pools + tennis) is just $32/month for CA residents — compared to $67 for non-residents.</p>
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">⛳</div>
+        <div class="benefit-text">
+          <h3>Golf — 2 courses</h3>
+          <p>Resident rates on golf memberships at Hobbit's Glen and other CA golf facilities. A significant saving for golf-loving residents compared to non-resident rates.</p>
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🧒</div>
+        <div class="benefit-text">
+          <h3>Family &amp; Youth Programs</h3>
+          <p>KidSpace childcare, before &amp; after school care, summer camps, youth &amp; teen center, arts programs, and swim lessons — all at resident pricing. Income-qualified households receive an additional 50% discount.</p>
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🌳</div>
+        <div class="benefit-text">
+          <h3>Open Space &amp; Pathways</h3>
+          <p>Free access to nearly 3,600 acres of open space, 95 miles of walking and biking pathways, lakes, parks, dog parks, and tot lots throughout Columbia.</p>
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🎉</div>
+        <div class="benefit-text">
+          <h3>Community Events</h3>
+          <p>Free entertainment, multicultural events, Lakefront Live concerts, wellness programming, and more throughout the year — open to all Columbia residents.</p>
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🏒</div>
+        <div class="benefit-text">
+          <h3>Ice Skating, Art Center &amp; More</h3>
+          <p>Resident rates at the Columbia Ice Rink, Columbia Art Center, Columbia Horse Center, Sports Park, and Roller Skate Arena — an unmatched range of amenities.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COLUMBIA CARD FEATURE -->
+<section class="section" id="columbia-card">
+  <div class="section-inner">
+    <div class="card-feature">
+      <div class="card-visual">
+        <div class="card-chip"></div>
+        <div>
+          <div class="card-brand">Columbia Card</div>
+          <div class="card-sub">Columbia Association · Resident Benefits</div>
+        </div>
+        <div class="card-free-badge">FREE</div>
+      </div>
+      <div class="card-info">
+        <div class="section-label">The Columbia Card</div>
+        <h2>Free for every Columbia resident</h2>
+        <ul class="card-perks">
+          <li>
+            <div class="perk-check">✓</div>
+            <span>Unlock resident-rate pricing on all CA memberships and programs</span>
+          </li>
+          <li>
+            <div class="perk-check">✓</div>
+            <span>4 free pool day passes per family each summer season</span>
+          </li>
+          <li>
+            <div class="perk-check">✓</div>
+            <span>Free entry every 2nd Sunday, June–August (2nd Sunday Swim)</span>
+          </li>
+          <li>
+            <div class="perk-check">✓</div>
+            <span>Resident discounts at pools, tennis courts, golf courses &amp; fitness classes</span>
+          </li>
+          <li>
+            <div class="perk-check">✓</div>
+            <span>Simple online application — proof of Columbia address is all you need</span>
+          </li>
+        </ul>
+        <a href="https://columbiaassociation.org/sports-recreation/membership/columbia-card/" target="_blank" class="btn-primary" style="background: var(--ca-green); color: white; box-shadow: 0 4px 20px rgba(45,106,63,0.25);">
+          Get Your Free Columbia Card →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING TABLE -->
+<section class="section section-alt" id="pricing">
+  <div class="section-inner">
+    <div class="section-label">Membership Pricing</div>
+    <h2>What residents actually save</h2>
+    <p class="section-intro">CA resident pricing is a real, tangible benefit. These are the current monthly rates — residents pay significantly less than their non-Columbia neighbors.</p>
+
+    <div class="tab-nav">
+      <button class="tab-btn active" onclick="showTab('new-member')">New Member</button>
+      <button class="tab-btn" onclick="showTab('renewal')">Renewal</button>
+    </div>
+
+    <div id="new-member" class="tab-panel active">
+      <div class="pricing-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Membership</th>
+              <th>CA Resident</th>
+              <th>Non-Resident</th>
+              <th>Individual Savings</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Play</strong><br><small style="color:#888">Pools + Tennis</small></td>
+              <td><span class="price-resident">$32/mo</span></td>
+              <td><span class="price-nonres">$67/mo</span></td>
+              <td><span class="price-savings">Save $35/mo</span></td>
+            </tr>
+            <tr>
+              <td><strong>1Fit</strong><br><small style="color:#888">Gym access</small></td>
+              <td><span class="price-resident">$70/mo</span></td>
+              <td><span class="price-nonres">$95/mo</span></td>
+              <td><span class="price-savings">Save $25/mo</span></td>
+            </tr>
+            <tr>
+              <td><strong>Fit&amp;Play</strong><br><small style="color:#888">Gym + Pools + Tennis</small></td>
+              <td><span class="price-resident">$100/mo</span></td>
+              <td><span class="price-nonres">$121/mo</span></td>
+              <td><span class="price-savings">Save $21/mo</span></td>
+            </tr>
+            <tr>
+              <td><strong>Family Play</strong><br><small style="color:#888">Family — Pools + Tennis</small></td>
+              <td><span class="price-resident">$46/mo</span></td>
+              <td><span class="price-nonres">$86/mo</span></td>
+              <td><span class="price-savings">Save $40/mo</span></td>
+            </tr>
+            <tr>
+              <td><strong>Family Fit&amp;Play</strong><br><small style="color:#888">Family — Gym + Pools + Tennis</small></td>
+              <td><span class="price-resident">$140/mo</span></td>
+              <td><span class="price-nonres">$211/mo</span></td>
+              <td><span class="price-savings">Save $71/mo</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="renewal" class="tab-panel">
+      <div class="pricing-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Membership</th>
+              <th>CA Resident</th>
+              <th>Non-Resident</th>
+              <th>Individual Savings</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Play</strong><br><small style="color:#888">Pools + Tennis</small></td>
+              <td><span class="price-resident">$27/mo</span></td>
+              <td><span class="price-nonres">$61/mo</span></td>
+              <td><span class="price-savings">Save $34/mo</span></td>
+            </tr>
+            <tr>
+              <td><strong>1Fit</strong><br><small style="color:#888">Gym access</small></td>
+              <td><span class="price-resident">$68/mo</span></td>
+              <td><span class="price-nonres">$89/mo</span></td>
+              <td><span class="price-savings">Save $21/mo</span></td>
+            </tr>
+            <tr>
+              <td><strong>Fit&amp;Play</strong><br><small style="color:#888">Gym + Pools + Tennis</small></td>
+              <td><span class="price-resident">$87/mo</span></td>
+              <td><span class="price-nonres">$111/mo</span></td>
+              <td><span class="price-savings">Save $24/mo</span></td>
+            </tr>
+            <tr>
+              <td><strong>Family Play</strong><br><small style="color:#888">Family — Pools + Tennis</small></td>
+              <td><span class="price-resident">$39/mo</span></td>
+              <td><span class="price-nonres">$78/mo</span></td>
+              <td><span class="price-savings">Save $39/mo</span></td>
+            </tr>
+            <tr>
+              <td><strong>Family Fit&amp;Play</strong><br><small style="color:#888">Family — Gym + Pools + Tennis</small></td>
+              <td><span class="price-resident">$122/mo</span></td>
+              <td><span class="price-nonres">$198/mo</span></td>
+              <td><span class="price-savings">Save $76/mo</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p class="pricing-note">Pricing valid through April 30, 2026. Income-qualified households may receive an additional 50% discount on all memberships. <a href="https://columbiaassociation.org/sports-recreation/membership/pricing/" target="_blank" style="color: var(--ca-green)">View full pricing at columbiaassociation.org →</a></p>
+  </div>
+</section>
+
+<!-- COPY TOOLKIT -->
+<section class="section" id="copy-toolkit">
+  <div class="section-inner">
+    <div class="section-label">Ready-to-Use Copy</div>
+    <h2>Drop these into your newsletters &amp; emails</h2>
+    <p class="section-intro">Copy any of these blocks directly into your resident communications. Edit freely to match your building's voice — or use them as-is.</p>
+
+    <div class="announcement">
+      <div class="announcement-icon">💡</div>
+      <p><strong>Tip for property managers:</strong> Replace <em>[BUILDING NAME]</em> with your community's name. All copy is written for you to send to your residents on CA's behalf.</p>
+    </div>
+
+    <div class="copy-blocks">
+
+      <div class="copy-block">
+        <div class="copy-block-label">📧 Email Newsletter Block — Short</div>
+        <div class="copy-block-text" id="copy-1">
+          <strong>Did you know? You're a Columbia Association resident — and that means real perks.</strong><br><br>
+          As a resident of [BUILDING NAME], you live on CA-assessed property, which means you qualify for Columbia Association resident benefits — including discounted memberships, pool access, fitness clubs, and more. Best of all, your free Columbia Card unlocks it all.<br><br>
+          🏊 Pool memberships from just $32/month (resident rate)<br>
+          💪 Gym access from $70/month<br>
+          🎉 Free 2nd Sunday Swim every June–August<br>
+          🌳 95 miles of pathways and open space, always free<br><br>
+          <strong>Get your free Columbia Card at:</strong> columbiaassociation.org/columbia-card
+        </div>
+        <button class="copy-btn" onclick="copyText('copy-1', this)">📋 Copy</button>
+      </div>
+
+      <div class="copy-block">
+        <div class="copy-block-label">📧 Email Newsletter Block — Long</div>
+        <div class="copy-block-text" id="copy-2">
+          <strong>A benefit you may not know you have — and it's free.</strong><br><br>
+          Living at [BUILDING NAME] means you're part of something bigger. As a resident of a CA-assessed property in Columbia, Maryland, you're entitled to Columbia Association resident benefits — the same perks enjoyed by Columbia homeowners.<br><br>
+          Columbia Association (CA) is the nonprofit community services organization behind Columbia's pools, fitness clubs, open spaces, youth programs, and much more. Residents of CA-assessed properties — including renters — receive significant discounts on memberships and programs across all of CA's facilities.<br><br>
+          <strong>Here's what your CA residency unlocks:</strong><br>
+          • Resident-rate memberships — pools + tennis from $32/mo; gym from $70/mo; family packages from $46/mo<br>
+          • 4 complimentary pool day passes per family each summer (with Columbia Card)<br>
+          • Free entry every 2nd Sunday of the month, June through August (2nd Sunday Swim)<br>
+          • Discounts on group fitness classes, youth programs, golf, ice skating, and more<br>
+          • 50% discount for income-qualified households<br>
+          • Free access to 3,600 acres of open space and 95 miles of pathways<br><br>
+          <strong>Getting started takes just a few minutes.</strong> Request your free Columbia Card at columbiaassociation.org/columbia-card or contact CA Customer Care at 410-730-1801 (Mon–Fri, 9am–4pm).
+        </div>
+        <button class="copy-btn" onclick="copyText('copy-2', this)">📋 Copy</button>
+      </div>
+
+      <div class="copy-block">
+        <div class="copy-block-label">📱 Social Media Post (Facebook / Instagram)</div>
+        <div class="copy-block-text" id="copy-3">
+          🌿 Living at [BUILDING NAME]? You've got access to more than you think.<br><br>
+          As a Columbia, MD resident, you qualify for Columbia Association (CA) resident rates — including discounted memberships at pools, gyms, tennis courts, and more. Plus a FREE Columbia Card that includes pool day passes and 2nd Sunday Swim access June–August.<br><br>
+          It takes just a few minutes to register. 👇<br>
+          🔗 columbiaassociation.org/columbia-card<br><br>
+          #ColumbiaMaryland #ColumbiaAssociation #LivingInColumbia #ColumbiaCard #CommunityPerks
+        </div>
+        <button class="copy-btn" onclick="copyText('copy-3', this)">📋 Copy</button>
+      </div>
+
+      <div class="copy-block">
+        <div class="copy-block-label">📌 Lobby Flyer / Bulletin Board Text</div>
+        <div class="copy-block-text" id="copy-4">
+          YOU LIVE HERE. YOU BELONG TO THIS.<br><br>
+          As a resident of [BUILDING NAME], you qualify for Columbia Association resident benefits — including access to pools, fitness clubs, tennis courts, and community programs at deeply discounted rates.<br><br>
+          Get your FREE Columbia Card and start saving today.<br><br>
+          Visit: columbiaassociation.org/columbia-card<br>
+          Or call: 410-730-1801 (Mon–Fri, 9am–4pm)<br><br>
+          Columbia Association · Making Columbia an even better place to live, work and play.
+        </div>
+        <button class="copy-btn" onclick="copyText('copy-4', this)">📋 Copy</button>
+      </div>
+
+      <div class="copy-block">
+        <div class="copy-block-label">📩 Move-In Welcome Letter Paragraph</div>
+        <div class="copy-block-text" id="copy-5">
+          Welcome to Columbia, Maryland — one of the best places to live in America. As a resident of [BUILDING NAME], you're located on Columbia Association (CA) assessed property, which means you're entitled to CA resident benefits at no additional cost. CA is the nonprofit organization that manages Columbia's pools, parks, fitness facilities, pathways, and community programs. Your free Columbia Card unlocks discounted membership rates and a range of community perks. To get yours, visit columbiaassociation.org/columbia-card or call 410-730-1801.
+        </div>
+        <button class="copy-btn" onclick="copyText('copy-5', this)">📋 Copy</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DOWNLOADABLE ASSETS -->
+<section class="section section-dark" id="assets">
+  <div class="section-inner">
+    <div class="section-label">Downloadable Assets</div>
+    <h2>Graphics ready to use</h2>
+    <p class="section-intro">These assets are sized and designed for the most common use cases. Download and use freely in resident communications, lobby displays, and social media.</p>
+
+    <div class="announcement" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.15);">
+      <div class="announcement-icon">⚠️</div>
+      <p style="color: rgba(255,255,255,0.7);"><strong style="color:white;">Note:</strong> Graphic assets are being finalized. Contact June at CA to request current print-ready files, or email <a href="mailto:CustomerCare@ColumbiaAssociation.org" style="color: var(--ca-gold-light);">CustomerCare@ColumbiaAssociation.org</a> with your building name for a customized version.</p>
+    </div>
+
+    <div class="assets-grid">
+      <div class="asset-card">
+        <div class="asset-thumb asset-bg-1">🏊<span class="asset-label">1080×1080</span></div>
+        <div class="asset-info">
+          <h4>Social Media Square</h4>
+          <p>Pool/resident benefits focus. Perfect for Facebook &amp; Instagram posts.</p>
+        </div>
+        <div class="asset-format">
+          <span class="fmt-tag">PNG</span>
+          <span class="fmt-tag">JPG</span>
+        </div>
+        <a href="mailto:CustomerCare@ColumbiaAssociation.org?subject=Asset Request: Social Square" class="asset-dl">📥 Request File</a>
+      </div>
+      <div class="asset-card">
+        <div class="asset-thumb asset-bg-2">💳<span class="asset-label">1200×628</span></div>
+        <div class="asset-info">
+          <h4>Email Header Banner</h4>
+          <p>Columbia Card CTA. Optimized for email newsletter headers.</p>
+        </div>
+        <div class="asset-format">
+          <span class="fmt-tag">PNG</span>
+          <span class="fmt-tag">JPG</span>
+        </div>
+        <a href="mailto:CustomerCare@ColumbiaAssociation.org?subject=Asset Request: Email Banner" class="asset-dl">📥 Request File</a>
+      </div>
+      <div class="asset-card">
+        <div class="asset-thumb asset-bg-3 portrait">📄<span class="asset-label">8.5×11</span></div>
+        <div class="asset-info">
+          <h4>Lobby Flyer</h4>
+          <p>Print-ready flyer for bulletin boards and lobby displays. Includes QR code.</p>
+        </div>
+        <div class="asset-format">
+          <span class="fmt-tag">PDF</span>
+          <span class="fmt-tag">PNG</span>
+        </div>
+        <a href="mailto:CustomerCare@ColumbiaAssociation.org?subject=Asset Request: Lobby Flyer" class="asset-dl">📥 Request File</a>
+      </div>
+      <div class="asset-card">
+        <div class="asset-thumb asset-bg-1 square">🌿<span class="asset-label">1080×1080</span></div>
+        <div class="asset-info">
+          <h4>Open Space / Lifestyle Square</h4>
+          <p>Nature &amp; community lifestyle imagery for social &amp; digital use.</p>
+        </div>
+        <div class="asset-format">
+          <span class="fmt-tag">PNG</span>
+          <span class="fmt-tag">JPG</span>
+        </div>
+        <a href="mailto:CustomerCare@ColumbiaAssociation.org?subject=Asset Request: Lifestyle Square" class="asset-dl">📥 Request File</a>
+      </div>
+      <div class="asset-card">
+        <div class="asset-thumb asset-bg-2">🎟<span class="asset-label">4×6</span></div>
+        <div class="asset-info">
+          <h4>Postcard (Print-Ready)</h4>
+          <p>Double-sided 4×6 postcard for welcome packets or direct mail inserts.</p>
+        </div>
+        <div class="asset-format">
+          <span class="fmt-tag">PDF</span>
+        </div>
+        <a href="mailto:CustomerCare@ColumbiaAssociation.org?subject=Asset Request: Postcard" class="asset-dl">📥 Request File</a>
+      </div>
+      <div class="asset-card">
+        <div class="asset-thumb asset-bg-3">📊<span class="asset-label">1920×1080</span></div>
+        <div class="asset-info">
+          <h4>Savings Comparison Graphic</h4>
+          <p>Resident vs. non-resident price comparison. Great for digital signage.</p>
+        </div>
+        <div class="asset-format">
+          <span class="fmt-tag">PNG</span>
+          <span class="fmt-tag">PDF</span>
+        </div>
+        <a href="mailto:CustomerCare@ColumbiaAssociation.org?subject=Asset Request: Savings Graphic" class="asset-dl">📥 Request File</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section section-alt" id="contact">
+  <div class="section-inner">
+    <div class="section-label">Get In Touch</div>
+    <h2>We're here to help</h2>
+    <p class="section-intro">Whether your residents have questions about eligibility, memberships, or getting their Columbia Card, CA's team is ready to assist.</p>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-icon">📧</div>
+        <h3>Email Customer Care</h3>
+        <p>
+          For Columbia Card requests and general questions:<br><br>
+          <a href="mailto:CustomerCare@ColumbiaAssociation.org">CustomerCare@ColumbiaAssociation.org</a>
+        </p>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">📞</div>
+        <h3>Call or Visit</h3>
+        <p>
+          <a href="tel:4107301801">410-730-1801</a><br>
+          Mon–Fri, 9am–4pm<br><br>
+          6310 Hillside Court<br>Columbia, MD 21046
+        </p>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">🏋️</div>
+        <h3>Visit a Fitness Club</h3>
+        <p>
+          For membership inquiries, visit a CA fitness club in person. Sales staff at Columbia Athletic Club, Columbia Gym, and Supreme Sports Club can help residents get started.<br><br>
+          <a href="https://columbiaassociation.org/sports-recreation/fitness-clubs/" target="_blank">Find a club →</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong>Columbia Association</strong> · 6310 Hillside Court, Columbia, MD 21046 · <a href="tel:4107153000">410-715-3000</a></p>
+  <p style="margin-top:6px"><a href="https://columbiaassociation.org" target="_blank">columbiaassociation.org</a> · <a href="https://columbiaassociation.org/sports-recreation/membership/columbia-card/" target="_blank">Get Columbia Card</a> · <a href="https://columbiaassociation.org/sports-recreation/membership/pricing/" target="_blank">Membership Pricing</a></p>
+  <p style="margin-top:12px; font-size:0.75rem; opacity:0.5">This page is intended for property managers of CA-assessed residential buildings in Columbia, Maryland. Content prepared by Columbia Association for partner use. © 2025 Columbia Association. All rights reserved.</p>
+</footer>
+
+<!-- STICKY BAR -->
+<div class="sticky-bar">
+  <div class="sticky-bar-text">
+    <strong>Ready to share with your residents?</strong> Get their free Columbia Card started today.
+  </div>
+  <div class="sticky-bar-actions">
+    <a href="https://columbiaassociation.org/sports-recreation/membership/columbia-card/" target="_blank" class="btn-sm btn-sm-green">Get Columbia Card (Free) →</a>
+    <a href="#copy-toolkit" class="btn-sm btn-sm-outline">Copy Toolkit</a>
+  </div>
+</div>
+
+<script>
+  function copyText(id, btn) {
+    const el = document.getElementById(id);
+    const text = el.innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = '✓ Copied!';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = '📋 Copy';
+        btn.classList.remove('copied');
+      }, 2200);
+    });
+  }
+
+  function showTab(id) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+</body>
+</html>
