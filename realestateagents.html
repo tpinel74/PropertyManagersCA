@@ -122,6 +122,46 @@
 
     .nav-btn-gold:hover { opacity: 0.88; }
 
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      margin-right: 0.75rem;
+    }
+
+    .nav-link {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      padding: 0.3rem 0.65rem;
+      border-radius: 3px;
+      transition: color 0.18s, background 0.18s;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      color: var(--white);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .nav-link.active {
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    .nav-divider {
+      width: 1px;
+      height: 18px;
+      background: rgba(255,255,255,0.15);
+      margin: 0 0.25rem;
+    }
+
+    @media (max-width: 780px) {
+      .nav-links { display: none; }
+    }
+
     /* ─── BREADCRUMB ─── */
     .breadcrumb {
       background: var(--light);
@@ -750,6 +790,11 @@
       </div>
     </a>
     <div class="nav-right">
+      <nav class="nav-links">
+        <a href="propertymanagers.html" class="nav-link">Property Managers</a>
+        <a href="realestateagents.html" class="nav-link active">Realtors</a>
+      </nav>
+      <div class="nav-divider"></div>
       <button class="nav-btn nav-btn-ghost" onclick="document.getElementById('lookup').scrollIntoView({behavior:'smooth'})">Check an Address</button>
       <button class="nav-btn nav-btn-ghost" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Contact</button>
     </div>
