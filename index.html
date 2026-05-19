@@ -573,6 +573,99 @@
       color: var(--gold);
     }
 
+    /* ─── SUBSCRIBE BAND ─── */
+    .subscribe-band {
+      background: var(--light);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 3rem 2.5rem;
+    }
+
+    .subscribe-band-inner {
+      max-width: 780px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .subscribe-copy {
+      flex: 1;
+      min-width: 220px;
+    }
+
+    .subscribe-copy .section-label { color: var(--green); }
+
+    .subscribe-copy p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.65;
+      margin-top: 0.25rem;
+    }
+
+    .subscribe-form {
+      display: flex;
+      gap: 0.6rem;
+      flex-shrink: 0;
+      flex-wrap: wrap;
+    }
+
+    .subscribe-input {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.88rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      padding: 0.68rem 1rem;
+      outline: none;
+      color: var(--text);
+      width: 240px;
+      transition: border-color 0.18s, box-shadow 0.18s;
+    }
+
+    .subscribe-input:focus {
+      border-color: var(--navy);
+      box-shadow: 0 0 0 3px rgba(28,58,110,0.07);
+    }
+
+    .subscribe-input::placeholder { color: #aab0ba; }
+
+    .subscribe-btn {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: var(--navy);
+      color: var(--white);
+      border: none;
+      border-radius: 5px;
+      padding: 0.68rem 1.25rem;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.18s;
+    }
+
+    .subscribe-btn:hover { background: var(--navy-d); }
+
+    .subscribe-confirm {
+      display: none;
+      font-size: 0.85rem;
+      color: var(--green);
+      font-weight: 400;
+      padding: 0.5rem 0;
+    }
+
+    .subscribe-confirm.show { display: block; }
+
+    .subscribe-note {
+      font-size: 0.72rem;
+      color: var(--muted);
+      font-weight: 300;
+      margin-top: 0.5rem;
+      width: 100%;
+    }
+
     /* ─── FOOTER ─── */
     footer {
       background: var(--navy-d);
@@ -744,6 +837,24 @@
     </div>
   </section>
 
+  <!-- SUBSCRIBE BAND -->
+  <div class="subscribe-band">
+    <div class="subscribe-band-inner">
+      <div class="subscribe-copy">
+        <div class="section-label">Stay Informed</div>
+        <p>New membership offers, seasonal programs, facility updates, and community news -- delivered when it's relevant to you as a CA partner.</p>
+      </div>
+      <div>
+        <div class="subscribe-form">
+          <input class="subscribe-input" type="email" id="subEmail" placeholder="Your email address" />
+          <button class="subscribe-btn" onclick="handleSubscribe()">Subscribe</button>
+        </div>
+        <div class="subscribe-confirm" id="subConfirm">✓ &nbsp;You're on the list. We'll be in touch.</div>
+        <p class="subscribe-note">CA partner communications only. Unsubscribe at any time.</p>
+      </div>
+    </div>
+  </div>
+
   <!-- FOOTER -->
   <footer>
     <p>
@@ -804,6 +915,20 @@
 
     document.getElementById('addressInput').addEventListener('keydown', function(e) {
       if (e.key === 'Enter') runLookup();
+    });
+
+    // ── SUBSCRIBE (placeholder) ──
+    // Wire to your email platform (Mailchimp, Engage Pro, etc.) here
+    function handleSubscribe() {
+      const email = document.getElementById('subEmail').value.trim();
+      if (!email || !email.includes('@')) return;
+      document.getElementById('subEmail').style.display = 'none';
+      document.querySelector('.subscribe-btn').style.display = 'none';
+      document.getElementById('subConfirm').classList.add('show');
+    }
+
+    document.getElementById('subEmail').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') handleSubscribe();
     });
   </script>
 
