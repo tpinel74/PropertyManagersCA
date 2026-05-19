@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Columbia Association — Property Manager Resource</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #1C3A6E;
+      --green: #3A7D3A;
+      --gold: #E8A020;
+      --light: #F4F6F8;
+      --white: #ffffff;
+      --text: #1a1a1a;
+      --muted: #5a6472;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      font-weight: 400;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--navy);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+    }
+
+    .nav-logo-mark {
+      width: 32px;
+      height: 32px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--navy);
+      flex-shrink: 0;
+    }
+
+    .nav-label {
+      color: rgba(255,255,255,0.85);
+      font-size: 0.8rem;
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      line-height: 1.2;
+    }
+
+    .nav-label strong {
+      display: block;
+      font-weight: 600;
+      color: var(--white);
+      font-size: 0.85rem;
+    }
+
+    nav a.nav-cta {
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 600;
+      font-size: 0.8rem;
+      padding: 0.45rem 1rem;
+      border-radius: 4px;
+      text-decoration: none;
+      white-space: nowrap;
+      letter-spacing: 0.02em;
+      transition: opacity 0.2s;
+    }
+
+    nav a.nav-cta:hover { opacity: 0.85; }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--navy);
+      padding: 5rem 2rem 4.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 60% 0%, rgba(232,160,32,0.12) 0%, transparent 60%),
+                  radial-gradient(ellipse at 20% 100%, rgba(58,125,58,0.10) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      background: rgba(232,160,32,0.18);
+      color: var(--gold);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.9rem;
+      border-radius: 2px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      color: var(--white);
+      line-height: 1.2;
+      max-width: 680px;
+      margin: 0 auto 1.25rem;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-sub {
+      color: rgba(255,255,255,0.72);
+      font-size: 1.05rem;
+      font-weight: 300;
+      max-width: 520px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+      margin-top: 2.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--gold);
+      line-height: 1;
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.55);
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      margin-top: 0.25rem;
+    }
+
+    /* ── SECTION BASE ── */
+    section { padding: 4rem 2rem; }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 0.75rem;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      color: var(--navy);
+      line-height: 1.25;
+      margin-bottom: 1rem;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      font-size: 1rem;
+      font-weight: 300;
+      max-width: 560px;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .steps {
+      background: var(--light);
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .step-card {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 1.75rem 1.5rem;
+      border-left: 3px solid var(--green);
+      position: relative;
+    }
+
+    .step-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: rgba(58,125,58,0.18);
+      line-height: 1;
+      position: absolute;
+      top: 1rem;
+      right: 1.25rem;
+    }
+
+    .step-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: var(--navy);
+      margin-bottom: 0.6rem;
+    }
+
+    .step-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    /* ── BENEFITS ── */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+
+    .benefit-item {
+      padding: 1.5rem 1.25rem;
+      border: 1px solid #e2e7ed;
+      border-radius: 8px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .benefit-item:hover {
+      border-color: var(--green);
+      box-shadow: 0 2px 12px rgba(58,125,58,0.08);
+    }
+
+    .benefit-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.6rem;
+      display: block;
+    }
+
+    .benefit-item h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      color: var(--navy);
+      margin-bottom: 0.3rem;
+    }
+
+    .benefit-item p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.5;
+    }
+
+    /* ── COLUMBIA CARD ── */
+    .card-section {
+      background: var(--navy);
+      padding: 4rem 2rem;
+    }
+
+    .card-section h2 { color: var(--white); }
+    .card-section .section-label { color: var(--gold); }
+
+    .card-section .section-intro {
+      color: rgba(255,255,255,0.65);
+    }
+
+    .card-box {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      padding: 2rem 2.5rem;
+      margin-top: 2rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .card-badge {
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.8rem;
+      border-radius: 3px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      align-self: flex-start;
+      margin-top: 0.2rem;
+    }
+
+    .card-perks {
+      list-style: none;
+      flex: 1;
+      min-width: 240px;
+    }
+
+    .card-perks li {
+      color: rgba(255,255,255,0.82);
+      font-size: 0.9rem;
+      font-weight: 300;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+    }
+
+    .card-perks li:last-child { border-bottom: none; }
+
+    .card-perks li::before {
+      content: '✓';
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 0.8rem;
+      margin-top: 0.1rem;
+      flex-shrink: 0;
+    }
+
+    .card-cta {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0.8rem 1.6rem;
+      border-radius: 5px;
+      text-decoration: none;
+      margin-top: 1.75rem;
+      transition: opacity 0.2s;
+    }
+
+    .card-cta:hover { opacity: 0.85; }
+
+    /* ── SAVINGS ── */
+    .savings {
+      background: var(--light);
+    }
+
+    .savings-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+      font-size: 0.88rem;
+      background: var(--white);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+    }
+
+    .savings-table thead tr {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .savings-table th {
+      padding: 0.9rem 1.25rem;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+    }
+
+    .savings-table td {
+      padding: 0.85rem 1.25rem;
+      border-bottom: 1px solid #edf0f3;
+      color: var(--text);
+    }
+
+    .savings-table tbody tr:last-child td { border-bottom: none; }
+
+    .savings-table tbody tr:nth-child(even) td { background: #f9fafb; }
+
+    .savings-highlight {
+      color: var(--green);
+      font-weight: 600;
+    }
+
+    .table-note {
+      font-size: 0.75rem;
+      color: var(--muted);
+      font-weight: 300;
+      margin-top: 0.75rem;
+    }
+
+    /* ── CONTACT ── */
+    .contact {
+      padding: 4rem 2rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .contact-card {
+      padding: 1.75rem 1.5rem;
+      border: 1px solid #e2e7ed;
+      border-radius: 8px;
+    }
+
+    .contact-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-card p, .contact-card a {
+      font-size: 0.88rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.6;
+      text-decoration: none;
+    }
+
+    .contact-card a {
+      color: var(--green);
+      font-weight: 400;
+    }
+
+    .contact-card a:hover { text-decoration: underline; }
+
+    .contact-icon {
+      font-size: 1.4rem;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    footer p {
+      color: rgba(255,255,255,0.45);
+      font-size: 0.78rem;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    footer a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+    }
+
+    footer a:hover { color: var(--white); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-eyebrow { animation: fadeUp 0.5s ease both; }
+    .hero h1      { animation: fadeUp 0.5s 0.1s ease both; }
+    .hero-sub     { animation: fadeUp 0.5s 0.2s ease both; }
+    .hero-stats   { animation: fadeUp 0.5s 0.3s ease both; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .hero { padding: 3.5rem 1.25rem 3rem; }
+      section { padding: 3rem 1.25rem; }
+      .card-section { padding: 3rem 1.25rem; }
+      .card-box { padding: 1.5rem; }
+      .hero-stats { gap: 1.5rem; }
+      nav { padding: 0 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="https://columbiaassociation.org" class="nav-logo" target="_blank" rel="noopener">
+      <div class="nav-logo-mark">CA</div>
+      <div class="nav-label">
+        <strong>Columbia Association</strong>
+        Property Manager Resource
+      </div>
+    </a>
+    <a href="https://columbiaassociation.org/sports-recreation/membership/columbia-card/" class="nav-cta" target="_blank" rel="noopener">Columbia Card →</a>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container">
+      <span class="hero-eyebrow">For Property Managers</span>
+      <h1>Your residents have benefits <em>they don't know about.</em></h1>
+      <p class="hero-sub">
+        Every resident living in a CA-assessed building in Columbia is entitled to Columbia Association member benefits -- discounted memberships, pool access, fitness clubs, and more. This page gives you what you need to let them know.
+      </p>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">43+</span>
+          <span class="stat-label">Community Facilities</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">23</span>
+          <span class="stat-label">Outdoor Pools</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">95mi</span>
+          <span class="stat-label">Pathways & Open Space</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">Free</span>
+          <span class="stat-label">Columbia Card for Residents</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HOW IT WORKS -->
+  <section class="steps">
+    <div class="container">
+      <div class="section-label">How It Works</div>
+      <h2>Three steps to unlocking resident benefits</h2>
+      <p class="section-intro">Share this simple journey with your tenants. It costs them nothing.</p>
+      <div class="steps-grid">
+        <div class="step-card">
+          <span class="step-num">01</span>
+          <h3>Check eligibility</h3>
+          <p>Residents of CA-assessed properties automatically qualify. If they live in Columbia, they're almost certainly in.</p>
+        </div>
+        <div class="step-card">
+          <span class="step-num">02</span>
+          <h3>Get a free Columbia Card</h3>
+          <p>Residents register online or through CA Customer Care. All they need is a Columbia address and proof of residency.</p>
+        </div>
+        <div class="step-card">
+          <span class="step-num">03</span>
+          <h3>Enjoy resident-rate perks</h3>
+          <p>Pools, fitness clubs, tennis, golf, programs, and more -- all at meaningfully lower resident pricing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section>
+    <div class="container">
+      <div class="section-label">What Residents Get</div>
+      <h2>A community built for living well</h2>
+      <p class="section-intro">CA resident benefits are an amenity your building is already delivering.</p>
+      <div class="benefits-grid">
+        <div class="benefit-item">
+          <span class="benefit-icon">🏊</span>
+          <h3>Pools</h3>
+          <p>23 outdoor pools plus indoor facilities. Resident rates and complimentary guest passes each summer.</p>
+        </div>
+        <div class="benefit-item">
+          <span class="benefit-icon">💪</span>
+          <h3>Fitness Clubs</h3>
+          <p>Resident rates at three full-service gym locations across Columbia.</p>
+        </div>
+        <div class="benefit-item">
+          <span class="benefit-icon">🎾</span>
+          <h3>Tennis & Pickleball</h3>
+          <p>Resident discounts at CA's tennis clubs. Play membership from just $32/month.</p>
+        </div>
+        <div class="benefit-item">
+          <span class="benefit-icon">🧒</span>
+          <h3>Family & Youth</h3>
+          <p>Camps, childcare, swim lessons, and arts programs -- all at resident pricing.</p>
+        </div>
+        <div class="benefit-item">
+          <span class="benefit-icon">🌳</span>
+          <h3>Open Space</h3>
+          <p>Free access to nearly 3,600 acres of parks, lakes, dog parks, and pathways.</p>
+        </div>
+        <div class="benefit-item">
+          <span class="benefit-icon">⛳</span>
+          <h3>Golf & More</h3>
+          <p>Resident rates at CA golf courses, the ice rink, art center, and more.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLUMBIA CARD -->
+  <section class="card-section">
+    <div class="container">
+      <div class="section-label">The Columbia Card</div>
+      <h2>Free for every Columbia resident</h2>
+      <p class="section-intro">The Columbia Card is the credential that unlocks resident pricing across all CA facilities and programs.</p>
+      <div class="card-box">
+        <span class="card-badge">Free</span>
+        <ul class="card-perks">
+          <li>Resident-rate pricing on all CA memberships and programs</li>
+          <li>4 complimentary pool day passes per family each summer</li>
+          <li>Free entry every 2nd Sunday, June through August</li>
+          <li>Simple online application -- just a Columbia address and proof of residency</li>
+        </ul>
+      </div>
+      <a href="https://columbiaassociation.org/sports-recreation/membership/columbia-card/" class="card-cta" target="_blank" rel="noopener">Get the Columbia Card →</a>
+    </div>
+  </section>
+
+  <!-- SAVINGS TABLE -->
+  <section class="savings">
+    <div class="container">
+      <div class="section-label">Membership Pricing</div>
+      <h2>What residents actually save</h2>
+      <p class="section-intro">Resident pricing is a real, tangible benefit -- here's how the numbers compare.</p>
+      <table class="savings-table">
+        <thead>
+          <tr>
+            <th>Membership</th>
+            <th>CA Resident</th>
+            <th>Non-Resident</th>
+            <th>Savings</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Play</strong> — Pools + Tennis</td>
+            <td>$32/mo</td>
+            <td>$67/mo</td>
+            <td class="savings-highlight">Save $35/mo</td>
+          </tr>
+          <tr>
+            <td><strong>1Fit</strong> — Gym access</td>
+            <td>$70/mo</td>
+            <td>$95/mo</td>
+            <td class="savings-highlight">Save $25/mo</td>
+          </tr>
+          <tr>
+            <td><strong>Fit&amp;Play</strong> — Gym + Pools + Tennis</td>
+            <td>$100/mo</td>
+            <td>$121/mo</td>
+            <td class="savings-highlight">Save $21/mo</td>
+          </tr>
+          <tr>
+            <td><strong>Family Play</strong> — Family Pools + Tennis</td>
+            <td>$46/mo</td>
+            <td>$86/mo</td>
+            <td class="savings-highlight">Save $40/mo</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="table-note">New member rates shown. Income-qualified households may receive an additional 50% discount. <a href="https://columbiaassociation.org/sports-recreation/membership/pricing/" target="_blank">View full pricing at columbiaassociation.org →</a></p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact">
+    <div class="container">
+      <div class="section-label">Get In Touch</div>
+      <h2>We're here to help</h2>
+      <p class="section-intro">Questions about eligibility, how to communicate benefits to residents, or anything else -- reach out to us directly.</p>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <span class="contact-icon">👤</span>
+          <h3>Your CA Partner Contact</h3>
+          <p>June is CA's point of contact for property manager partnerships.<br><br>
+          <a href="mailto:CustomerCare@ColumbiaAssociation.org">CustomerCare@ColumbiaAssociation.org</a></p>
+        </div>
+        <div class="contact-card">
+          <span class="contact-icon">📞</span>
+          <h3>CA Customer Care</h3>
+          <p><a href="tel:4107301801">410-730-1801</a><br>
+          Monday – Friday, 9am – 4pm<br><br>
+          6310 Hillside Court<br>Columbia, MD 21046</p>
+        </div>
+        <div class="contact-card">
+          <span class="contact-icon">🌐</span>
+          <h3>Learn More</h3>
+          <p>Full information on CA memberships, facilities, and programs at<br><br>
+          <a href="https://columbiaassociation.org" target="_blank" rel="noopener">columbiaassociation.org</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      <strong style="color:rgba(255,255,255,0.7)">Columbia Association</strong> &middot; 6310 Hillside Court, Columbia, MD 21046 &middot; <a href="tel:4107153000">410-715-3000</a><br>
+      <a href="https://columbiaassociation.org" target="_blank">columbiaassociation.org</a> &middot;
+      <a href="https://columbiaassociation.org/sports-recreation/membership/columbia-card/" target="_blank">Get Columbia Card</a> &middot;
+      <a href="https://columbiaassociation.org/sports-recreation/membership/pricing/" target="_blank">Membership Pricing</a><br><br>
+      This page is intended for property managers of CA-assessed residential buildings in Columbia, Maryland. &copy; 2025 Columbia Association. All rights reserved.
+    </p>
+  </footer>
+
+</body>
+</html>
