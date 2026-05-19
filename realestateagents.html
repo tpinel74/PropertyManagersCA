@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Real Estate Agents — Columbia Association Partner Resources</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy:   #1C3A6E;
+      --navy-d: #142d57;
+      --green:  #3A7D3A;
+      --gold:   #E8A020;
+      --light:  #F4F6F8;
+      --white:  #ffffff;
+      --text:   #1a1a1a;
+      --muted:  #5a6472;
+      --border: #dde2e8;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      font-weight: 400;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      background: var(--navy);
+      height: 62px;
+      padding: 0 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      box-shadow: 0 1px 0 rgba(255,255,255,0.06);
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .nav-mark {
+      width: 34px;
+      height: 34px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--navy);
+      flex-shrink: 0;
+    }
+
+    .nav-identity {
+      line-height: 1.2;
+    }
+
+    .nav-identity .org {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: 0.01em;
+    }
+
+    .nav-identity .sub {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-btn {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.42rem 1rem;
+      border-radius: 4px;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      letter-spacing: 0.02em;
+      transition: opacity 0.18s, background 0.18s;
+    }
+
+    .nav-btn-ghost {
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.82);
+    }
+
+    .nav-btn-ghost:hover { background: rgba(255,255,255,0.14); }
+
+    .nav-btn-gold {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    .nav-btn-gold:hover { opacity: 0.88; }
+
+    /* ─── BREADCRUMB ─── */
+    .breadcrumb {
+      background: var(--light);
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 2.5rem;
+    }
+
+    .breadcrumb-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      font-size: 0.75rem;
+      color: var(--muted);
+      font-weight: 300;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .breadcrumb a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover { color: var(--navy); }
+
+    .breadcrumb .sep { opacity: 0.4; }
+    .breadcrumb .current { color: var(--navy); font-weight: 400; }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: var(--navy);
+      padding: 5rem 2.5rem 4.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 85% -10%, rgba(232,160,32,0.13) 0%, transparent 55%),
+        radial-gradient(ellipse at 5% 110%, rgba(58,125,58,0.10) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(232,160,32,0.14);
+      border: 1px solid rgba(232,160,32,0.25);
+      color: var(--gold);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.9rem;
+      border-radius: 2px;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.5s ease both;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.9rem, 4vw, 2.85rem);
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 1.1rem;
+      max-width: 680px;
+      animation: fadeUp 0.5s 0.1s ease both;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-body {
+      color: rgba(255,255,255,0.68);
+      font-size: 1rem;
+      font-weight: 300;
+      max-width: 560px;
+      line-height: 1.75;
+      animation: fadeUp 0.5s 0.2s ease both;
+    }
+
+    /* ─── ABOUT CA BAND ─── */
+    .about-band {
+      background: var(--green);
+      padding: 1.4rem 2.5rem;
+    }
+
+    .about-band-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .about-band p {
+      color: rgba(255,255,255,0.92);
+      font-size: 0.88rem;
+      font-weight: 300;
+      line-height: 1.65;
+      flex: 1;
+      min-width: 260px;
+    }
+
+    .about-band p strong {
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .about-band a {
+      color: var(--white);
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+      border-bottom: 1px solid rgba(255,255,255,0.4);
+      padding-bottom: 1px;
+      flex-shrink: 0;
+    }
+
+    .about-band a:hover { border-color: var(--white); }
+
+    /* ─── SECTIONS ─── */
+    section { padding: 4rem 2.5rem; }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 0.6rem;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.55rem, 2.8vw, 2.1rem);
+      color: var(--navy);
+      line-height: 1.25;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 300;
+      max-width: 560px;
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ─── TALKING POINTS ─── */
+    .talking {
+      background: var(--light);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .points-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .point-card {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 1.6rem 1.5rem;
+      border-top: 3px solid var(--gold);
+    }
+
+    .point-card .point-context {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.6rem;
+    }
+
+    .point-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    .point-card p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    /* ─── ADDRESS LOOKUP ─── */
+    .lookup-section {
+      background: var(--navy);
+      padding: 4rem 2.5rem;
+    }
+
+    .lookup-section .section-label { color: var(--gold); }
+    .lookup-section h2 { color: var(--white); }
+    .lookup-section .section-intro { color: rgba(255,255,255,0.62); }
+
+    .lookup-box {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      padding: 2rem 2rem 1.75rem;
+      max-width: 600px;
+    }
+
+    .lookup-input-row {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .lookup-input {
+      flex: 1;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 400;
+      color: var(--text);
+      background: rgba(255,255,255,0.92);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 6px;
+      padding: 0.75rem 1rem;
+      outline: none;
+      transition: border-color 0.18s, box-shadow 0.18s;
+    }
+
+    .lookup-input:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(232,160,32,0.15);
+    }
+
+    .lookup-input::placeholder { color: #aab0ba; }
+
+    .lookup-submit {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--navy);
+      background: var(--gold);
+      border: none;
+      border-radius: 6px;
+      padding: 0.75rem 1.4rem;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: opacity 0.18s;
+    }
+
+    .lookup-submit:hover { opacity: 0.88; }
+
+    .lookup-result {
+      margin-top: 1.25rem;
+      padding: 0.9rem 1.1rem;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      font-weight: 400;
+      line-height: 1.5;
+      display: none;
+      text-align: left;
+    }
+
+    .lookup-result.yes {
+      background: rgba(58,125,58,0.18);
+      border: 1px solid rgba(58,125,58,0.35);
+      color: #c8f0c8;
+    }
+
+    .lookup-result.no {
+      background: rgba(200,80,60,0.15);
+      border: 1px solid rgba(200,80,60,0.3);
+      color: #f5cfc8;
+    }
+
+    .lookup-result.show { display: block; }
+
+    .lookup-note {
+      font-size: 0.74rem;
+      color: rgba(255,255,255,0.38);
+      font-weight: 300;
+      margin-top: 1rem;
+    }
+
+    /* ─── COLUMBIA CARD ─── */
+    .columbia-card-section { background: var(--light); }
+
+    .card-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+
+    .card-step {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 1.5rem 1.25rem;
+      border-left: 3px solid var(--green);
+      position: relative;
+    }
+
+    .step-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: rgba(58,125,58,0.15);
+      line-height: 1;
+      position: absolute;
+      top: 0.9rem;
+      right: 1.1rem;
+    }
+
+    .card-step h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      color: var(--navy);
+      margin-bottom: 0.4rem;
+    }
+
+    .card-step p {
+      font-size: 0.83rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    /* ─── SAVINGS ─── */
+    .savings-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+      font-size: 0.88rem;
+      background: var(--white);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+    }
+
+    .savings-table thead tr { background: var(--navy); color: var(--white); }
+
+    .savings-table th {
+      padding: 0.9rem 1.25rem;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+    }
+
+    .savings-table td {
+      padding: 0.85rem 1.25rem;
+      border-bottom: 1px solid #edf0f3;
+      color: var(--text);
+    }
+
+    .savings-table tbody tr:last-child td { border-bottom: none; }
+    .savings-table tbody tr:nth-child(even) td { background: #f9fafb; }
+    .savings-highlight { color: var(--green); font-weight: 600; }
+
+    .table-note {
+      font-size: 0.75rem;
+      color: var(--muted);
+      font-weight: 300;
+      margin-top: 0.75rem;
+    }
+
+    .table-note a { color: var(--green); text-decoration: none; }
+    .table-note a:hover { text-decoration: underline; }
+
+    /* ─── CTA SECTION ─── */
+    .cta-section {
+      background: var(--navy);
+      padding: 4.5rem 2.5rem;
+    }
+
+    .cta-grid {
+      max-width: 860px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .cta-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 2.25rem 2rem;
+    }
+
+    .cta-card .cta-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+
+    .cta-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: var(--white);
+      margin-bottom: 0.6rem;
+      line-height: 1.25;
+    }
+
+    .cta-card p {
+      color: rgba(255,255,255,0.58);
+      font-size: 0.86rem;
+      font-weight: 300;
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Subscribe form */
+    .subscribe-row {
+      display: flex;
+      gap: 0.6rem;
+    }
+
+    .subscribe-input {
+      flex: 1;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.86rem;
+      background: rgba(255,255,255,0.9);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 5px;
+      padding: 0.65rem 0.9rem;
+      outline: none;
+      color: var(--text);
+      transition: border-color 0.18s;
+      min-width: 0;
+    }
+
+    .subscribe-input:focus { border-color: var(--gold); }
+    .subscribe-input::placeholder { color: #9aa0aa; }
+
+    .subscribe-btn {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      background: var(--gold);
+      color: var(--navy);
+      border: none;
+      border-radius: 5px;
+      padding: 0.65rem 1.1rem;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: opacity 0.18s;
+    }
+
+    .subscribe-btn:hover { opacity: 0.88; }
+
+    .subscribe-confirm {
+      display: none;
+      color: rgba(255,255,255,0.75);
+      font-size: 0.83rem;
+      font-weight: 300;
+      margin-top: 0.75rem;
+    }
+
+    .subscribe-confirm.show { display: block; }
+
+    .subscribe-note {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.3);
+      font-weight: 300;
+      margin-top: 0.65rem;
+    }
+
+    /* Contact form */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.7rem;
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.86rem;
+      background: rgba(255,255,255,0.9);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 5px;
+      padding: 0.65rem 0.9rem;
+      outline: none;
+      color: var(--text);
+      width: 100%;
+      transition: border-color 0.18s;
+    }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus { border-color: var(--gold); }
+
+    .form-input::placeholder,
+    .form-textarea::placeholder { color: #9aa0aa; }
+
+    .form-select { color: var(--text); }
+    .form-select option { color: var(--text); }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .form-submit {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      background: var(--gold);
+      color: var(--navy);
+      border: none;
+      border-radius: 5px;
+      padding: 0.75rem 1.4rem;
+      cursor: pointer;
+      transition: opacity 0.18s;
+      align-self: flex-start;
+    }
+
+    .form-submit:hover { opacity: 0.88; }
+
+    .form-confirm {
+      display: none;
+      color: rgba(255,255,255,0.75);
+      font-size: 0.83rem;
+      font-weight: 300;
+      padding: 0.75rem 0;
+      line-height: 1.6;
+    }
+
+    .form-confirm.show { display: block; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--navy-d);
+      padding: 1.75rem 2.5rem;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+
+    footer p {
+      color: rgba(255,255,255,0.38);
+      font-size: 0.75rem;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
+    footer a:hover { color: rgba(255,255,255,0.8); }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 640px) {
+      nav { padding: 0 1.25rem; }
+      .nav-identity .sub { display: none; }
+      .breadcrumb { padding: 0.6rem 1.25rem; }
+      .hero { padding: 3.5rem 1.25rem 3rem; }
+      .about-band { padding: 1.25rem; }
+      section { padding: 3rem 1.25rem; }
+      .lookup-section { padding: 3rem 1.25rem; }
+      .lookup-input-row { flex-direction: column; }
+      .lookup-submit { width: 100%; }
+      .cta-section { padding: 3rem 1.25rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .subscribe-row { flex-direction: column; }
+      .subscribe-btn { width: 100%; }
+      footer { padding: 1.5rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-left">
+      <div class="nav-mark">CA</div>
+      <div class="nav-identity">
+        <span class="org">Columbia Association</span>
+        <span class="sub">Partner Resources</span>
+      </div>
+    </a>
+    <div class="nav-right">
+      <button class="nav-btn nav-btn-ghost" onclick="document.getElementById('lookup').scrollIntoView({behavior:'smooth'})">Check an Address</button>
+      <button class="nav-btn nav-btn-ghost" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Contact</button>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <div class="breadcrumb-inner">
+      <a href="index.html">Partner Resources</a>
+      <span class="sep">/</span>
+      <span class="current">Real Estate Agents</span>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-inner">
+      <span class="hero-eyebrow">Real Estate Agents</span>
+      <h1>Columbia Association benefits are a <em>genuine selling point.</em></h1>
+      <p class="hero-body">
+        Every home on CA-assessed property comes with access to one of the most comprehensive community amenity networks in the country -- pools, fitness clubs, open space, programs, and more. This page gives you what you need to tell that story confidently.
+      </p>
+    </div>
+  </header>
+
+  <!-- ABOUT CA BAND -->
+  <div class="about-band">
+    <div class="about-band-inner">
+      <p>
+        <strong>Columbia Association (CA)</strong> is the nonprofit behind Columbia's 43+ facilities, 23 outdoor pools, 95 miles of pathways, and the full range of community programs that define life here. Residents of CA-assessed properties get meaningful discounts on memberships through the free <strong>Columbia Card</strong> -- a tangible, ongoing benefit that comes with the address.
+      </p>
+      <a href="https://columbiaassociation.org" target="_blank" rel="noopener">columbiaassociation.org →</a>
+    </div>
+  </div>
+
+  <!-- TALKING POINTS -->
+  <section class="talking">
+    <div class="container">
+      <div class="section-label">In the Field</div>
+      <h2>Talking points for buyers and sellers</h2>
+      <p class="section-intro">CA benefits show up differently depending on where your client is in the transaction. Here's how to use them.</p>
+      <div class="points-grid">
+
+        <div class="point-card">
+          <div class="point-context">For buyers</div>
+          <h3>This address comes with built-in amenities</h3>
+          <p>Buyers are comparing Columbia properties to alternatives across the region. CA's network -- 23 pools, three fitness clubs, 95 miles of trails, and more -- is a genuine differentiator that's easy to quantify. A family Play membership for a CA resident runs $46/month versus $86/month for a non-resident.</p>
+        </div>
+
+        <div class="point-card">
+          <div class="point-context">For sellers</div>
+          <h3>CA is part of what you're selling</h3>
+          <p>Properties on CA-assessed land carry a community benefit that non-CA properties simply don't. The Columbia Card is free, the amenities are extensive, and most prospective buyers -- especially those coming from outside Columbia -- won't know this without you telling them.</p>
+        </div>
+
+        <div class="point-card">
+          <div class="point-context">For relocation clients</div>
+          <h3>Columbia is intentionally designed for this</h3>
+          <p>Columbia was master-planned from the start around community infrastructure. CA's role isn't incidental -- it's the mechanism that maintains and programs the amenities that come with living here. For clients relocating from other markets, this context matters.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ADDRESS LOOKUP -->
+  <section class="lookup-section" id="lookup">
+    <div class="container">
+      <div class="section-label">Before the Showing</div>
+      <h2>Confirm a property's CA status</h2>
+      <p class="section-intro">Check any address against CA's property assessment records before a client meeting. Know what you're working with before you walk in the door.</p>
+      <div class="lookup-box">
+        <div class="lookup-input-row">
+          <input
+            class="lookup-input"
+            type="text"
+            id="addressInput"
+            placeholder="Enter a Columbia, MD address..."
+            autocomplete="off"
+          />
+          <button class="lookup-submit" onclick="runLookup()">Check Address</button>
+        </div>
+        <div class="lookup-result" id="lookupResult"></div>
+        <p class="lookup-note">Questions about a specific property? Contact CA Customer Care at 410-730-1801.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLUMBIA CARD PROCESS -->
+  <section class="columbia-card-section">
+    <div class="container">
+      <div class="section-label">The Columbia Card</div>
+      <h2>What your clients get -- and how they get it</h2>
+      <p class="section-intro">When a buyer asks how this actually works, here's the answer. The Columbia Card is free, simple, and unlocks resident pricing across all CA facilities.</p>
+      <div class="card-steps">
+        <div class="card-step">
+          <span class="step-num">01</span>
+          <h3>Confirm eligibility</h3>
+          <p>Residents of CA-assessed properties qualify automatically. If the property is in Columbia, it almost certainly qualifies -- use the address lookup to confirm.</p>
+        </div>
+        <div class="card-step">
+          <span class="step-num">02</span>
+          <h3>Register online</h3>
+          <p>New residents apply at columbiaassociation.org or through CA Customer Care. They'll need a Columbia address and basic proof of residency -- typically a lease or utility bill.</p>
+        </div>
+        <div class="card-step">
+          <span class="step-num">03</span>
+          <h3>Unlock resident rates</h3>
+          <p>The Columbia Card is free, always. With it, residents receive discounted membership rates, 4 complimentary pool day passes each summer, and free 2nd Sunday Swim access June through August.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAVINGS TABLE -->
+  <section>
+    <div class="container">
+      <div class="section-label">The Numbers</div>
+      <h2>Resident vs. non-resident pricing</h2>
+      <p class="section-intro">These are the current new-member monthly rates -- concrete figures you can share with buyers to illustrate the real value of a CA address.</p>
+      <table class="savings-table">
+        <thead>
+          <tr>
+            <th>Membership</th>
+            <th>CA Resident</th>
+            <th>Non-Resident</th>
+            <th>Monthly Savings</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Play</strong> — Pools + Tennis</td>
+            <td>$32/mo</td>
+            <td>$67/mo</td>
+            <td class="savings-highlight">$35/mo</td>
+          </tr>
+          <tr>
+            <td><strong>1Fit</strong> — Gym access</td>
+            <td>$70/mo</td>
+            <td>$95/mo</td>
+            <td class="savings-highlight">$25/mo</td>
+          </tr>
+          <tr>
+            <td><strong>Fit&amp;Play</strong> — Gym + Pools + Tennis</td>
+            <td>$100/mo</td>
+            <td>$121/mo</td>
+            <td class="savings-highlight">$21/mo</td>
+          </tr>
+          <tr>
+            <td><strong>Family Play</strong> — Family Pools + Tennis</td>
+            <td>$46/mo</td>
+            <td>$86/mo</td>
+            <td class="savings-highlight">$40/mo</td>
+          </tr>
+          <tr>
+            <td><strong>Family Fit&amp;Play</strong> — Family Gym + Pools + Tennis</td>
+            <td>$140/mo</td>
+            <td>$211/mo</td>
+            <td class="savings-highlight">$71/mo</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="table-note">New member rates. Income-qualified households may receive an additional 50% discount. <a href="https://columbiaassociation.org/sports-recreation/membership/pricing/" target="_blank">Full pricing at columbiaassociation.org →</a></p>
+    </div>
+  </section>
+
+  <!-- CTA: SUBSCRIBE + CONTACT -->
+  <section class="cta-section" id="cta">
+    <div class="cta-grid">
+
+      <!-- Subscribe -->
+      <div class="cta-card">
+        <div class="cta-label">Stay Informed</div>
+        <h3>CA updates for real estate professionals</h3>
+        <p>New membership offers, seasonal programs, facility updates, and community news -- delivered when it's relevant. One list, no noise.</p>
+        <div class="subscribe-row">
+          <input class="subscribe-input" type="email" id="subEmail" placeholder="Your email address" />
+          <button class="subscribe-btn" onclick="handleSubscribe()">Subscribe</button>
+        </div>
+        <div class="subscribe-confirm" id="subConfirm">✓ &nbsp;You're on the list. We'll be in touch.</div>
+        <p class="subscribe-note">CA partner communications only. Unsubscribe at any time.</p>
+      </div>
+
+      <!-- Contact form -->
+      <div class="cta-card">
+        <div class="cta-label">Get In Touch</div>
+        <h3>Questions? Let's talk.</h3>
+        <p>Have a specific property question, want to learn more about CA's partner resources, or just want to connect? Reach out directly.</p>
+        <div class="contact-form" id="contactForm">
+          <div class="form-row">
+            <input class="form-input" type="text" id="fname" placeholder="Your name" />
+            <input class="form-input" type="email" id="femail" placeholder="Email address" />
+          </div>
+          <input class="form-input" type="text" id="fsubject" placeholder="Subject (optional)" />
+          <textarea class="form-textarea" id="fmessage" placeholder="Your message..."></textarea>
+          <button class="form-submit" onclick="handleContact()">Send Message</button>
+        </div>
+        <div class="form-confirm" id="formConfirm">✓ &nbsp;Message received. A member of CA's team will follow up with you shortly.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      <strong style="color:rgba(255,255,255,0.55)">Columbia Association</strong>
+      &nbsp;&middot;&nbsp; 6310 Hillside Court, Columbia, MD 21046
+      &nbsp;&middot;&nbsp; <a href="tel:4107153000">410-715-3000</a><br>
+      <a href="https://columbiaassociation.org" target="_blank">columbiaassociation.org</a>
+      &nbsp;&middot;&nbsp;
+      <a href="https://columbiaassociation.org/sports-recreation/membership/columbia-card/" target="_blank">Columbia Card</a>
+      &nbsp;&middot;&nbsp;
+      <a href="https://columbiaassociation.org/sports-recreation/membership/pricing/" target="_blank">Membership Pricing</a>
+      <br><br>
+      This resource is intended for Columbia Association partner organizations. Not for public distribution. &copy; 2025 Columbia Association. All rights reserved.
+    </p>
+  </footer>
+
+  <script>
+    // ── ADDRESS LOOKUP ──
+    function runLookup() {
+      const input = document.getElementById('addressInput').value.trim();
+      const result = document.getElementById('lookupResult');
+      if (!input) {
+        result.className = 'lookup-result no show';
+        result.innerHTML = 'Please enter an address to check.';
+        return;
+      }
+      // Replace with real CA lookup API call:
+      // fetch('https://your-ca-lookup-api/check?address=' + encodeURIComponent(input))
+      //   .then(r => r.json()).then(data => showResult(data.assessed, data.message));
+      const looksLikeColumbia = input.toLowerCase().includes('columbia') || input.includes('21044') || input.includes('21045') || input.includes('21046');
+      if (looksLikeColumbia) {
+        showResult(true, 'This address appears to be on CA-assessed property. Residents qualify for CA member benefits and a free Columbia Card.');
+      } else {
+        showResult(false, 'This address may not be on CA-assessed property. Contact CA Customer Care at 410-730-1801 to confirm.');
+      }
+    }
+
+    function showResult(isYes, message) {
+      const result = document.getElementById('lookupResult');
+      result.className = 'lookup-result ' + (isYes ? 'yes' : 'no') + ' show';
+      result.innerHTML = (isYes ? '✓' : '✗') + ' &nbsp;' + message;
+    }
+
+    document.getElementById('addressInput').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') runLookup();
+    });
+
+    // ── SUBSCRIBE (placeholder) ──
+    function handleSubscribe() {
+      const email = document.getElementById('subEmail').value.trim();
+      if (!email || !email.includes('@')) return;
+      // Wire to your email platform here (Mailchimp, Engage Pro, etc.)
+      document.getElementById('subEmail').style.display = 'none';
+      document.querySelector('.subscribe-btn').style.display = 'none';
+      document.getElementById('subConfirm').classList.add('show');
+    }
+
+    // ── CONTACT FORM (placeholder) ──
+    function handleContact() {
+      const name = document.getElementById('fname').value.trim();
+      const email = document.getElementById('femail').value.trim();
+      const message = document.getElementById('fmessage').value.trim();
+      if (!name || !email || !message) return;
+      // Wire to your form handler / June's inbox here
+      document.getElementById('contactForm').style.display = 'none';
+      document.getElementById('formConfirm').classList.add('show');
+    }
+  </script>
+
+</body>
+</html>
